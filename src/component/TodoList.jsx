@@ -4,19 +4,20 @@ import { deleteTodoAction, toggleTodoAction } from "../store/todosAction"
 import { todosReducer } from "../store/todosReducer"
 import { todosSelector } from "../store/todosSelector"
 
-function TodoItem({todo,onToggle}){
+function TodoItem({todo,onToggle, onDelete}){
     return <li>
         <label>
             <input type="checkbox" checked={todo.completed} onChange={() => onToggle(todo)} />
             {todo.title}
+            <button onClick={() => onDelete(todo)}>X</button>
         </label>
     </li>
 }
 
 
-export default function TodoList({todos, onToggle}){
+export default function TodoList({todos, onToggle, onDelete}){
     return <ul>
-        {todos.map(todo => <TodoItem todo={todo} onToggle={onToggle} />)}
+        {todos.map(todo => <TodoItem todo={todo} onToggle={onToggle} onDelete={onDelete} />)}
     </ul>
 }
 

@@ -1,5 +1,6 @@
 import React from "react"
 import {connect} from "react-redux"
+import { todosReducer } from "../store/todosReducer"
 
 function TodoItem({todo,onToggle}){
     return <li>
@@ -19,6 +20,6 @@ export default function TodoList({todos, onToggle}){
 
 export const TodoListStore = connect(
     (state) => ({
-        todos: state.todos
+        todos: todosReducer(state)
     })
 )(TodoList)

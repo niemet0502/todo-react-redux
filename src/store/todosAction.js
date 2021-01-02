@@ -1,4 +1,4 @@
-import {UPDATE_TODO_ACTION,DELETE_TODO_ACTION} from './todosReducer'
+import {UPDATE_TODO_ACTION,DELETE_TODO_ACTION, ADD_TODO_ACTION} from './todosReducer'
 
 export const toggleTodoAction = (todo) =>({
     type: UPDATE_TODO_ACTION,
@@ -8,4 +8,9 @@ export const toggleTodoAction = (todo) =>({
 export const deleteTodoAction = (todo) => ({
     type: DELETE_TODO_ACTION,
     payload: todo.id
+})
+
+export const addTodoAction = (title) => ({
+    type: ADD_TODO_ACTION,
+    payload: {title}
 })

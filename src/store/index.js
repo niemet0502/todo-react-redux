@@ -1,8 +1,9 @@
 import { combineReducers, createStore } from "redux"
-import {TodoReducer} from "./TodoReducer"
+import {todosReducer} from "./todosReducer"
+
 export default createStore(
     combineReducers({
-        todos: TodoReducer,
+        todos: todosReducer,
         filter: (state = 0, action) => state
     }),
     window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__()

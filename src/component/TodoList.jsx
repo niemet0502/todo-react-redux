@@ -1,5 +1,6 @@
 import React from "react"
 import {connect} from "react-redux"
+import { toggleTodoAction } from "../store/todosAction"
 import { todosReducer } from "../store/todosReducer"
 
 function TodoItem({todo,onToggle}){
@@ -21,5 +22,8 @@ export default function TodoList({todos, onToggle}){
 export const TodoListStore = connect(
     (state) => ({
         todos: todosReducer(state)
+    }),
+    (dispatch) => ({
+        onToggle: todo => dispatch(toggleTodoAction(todo))
     })
 )(TodoList)
